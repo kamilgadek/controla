@@ -1,4 +1,4 @@
-package com.example.controla
+package com.kamilgadek.controla
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,0 +1,154 @@
+{
+  "project_info": {
+    "project_number": "502732033801",
+    "project_id": "pizza-krakow-0305",
+    "storage_bucket": "pizza-krakow-0305.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:502732033801:android:d3cdd5784011d2ca1dcdd8",
+        "android_client_info": {
+          "package_name": "com.example.pizza_krakow_test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "502732033801-75u0bmqhl7q8nq1fg6rebr5meslva367.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRtXCG35SM8d5GS8ALNJUQDS80bQWo760"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "502732033801-75u0bmqhl7q8nq1fg6rebr5meslva367.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "502732033801-7mh3ddqcur1435h3slid4m8fti8on11h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.pizzaKrakowTest"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:502732033801:android:12203ff4bcbabbb01dcdd8",
+        "android_client_info": {
+          "package_name": "com.kamilgadek.controla"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "502732033801-75u0bmqhl7q8nq1fg6rebr5meslva367.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRtXCG35SM8d5GS8ALNJUQDS80bQWo760"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "502732033801-75u0bmqhl7q8nq1fg6rebr5meslva367.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "502732033801-7mh3ddqcur1435h3slid4m8fti8on11h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.pizzaKrakowTest"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:502732033801:android:0c24a42ea21cbab81dcdd8",
+        "android_client_info": {
+          "package_name": "com.kamilgadek.login_page"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "502732033801-75u0bmqhl7q8nq1fg6rebr5meslva367.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRtXCG35SM8d5GS8ALNJUQDS80bQWo760"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "502732033801-75u0bmqhl7q8nq1fg6rebr5meslva367.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "502732033801-7mh3ddqcur1435h3slid4m8fti8on11h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.pizzaKrakowTest"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:502732033801:android:259e2ade71fde6de1dcdd8",
+        "android_client_info": {
+          "package_name": "com.kamilgadek.najlepsza_pizza"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "502732033801-75u0bmqhl7q8nq1fg6rebr5meslva367.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRtXCG35SM8d5GS8ALNJUQDS80bQWo760"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "502732033801-75u0bmqhl7q8nq1fg6rebr5meslva367.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "502732033801-7mh3ddqcur1435h3slid4m8fti8on11h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.pizzaKrakowTest"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

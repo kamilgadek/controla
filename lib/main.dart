@@ -1,3 +1,5 @@
+import 'package:controla/app/login/home_page.dart';
+import 'package:controla/app/login/login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -38,20 +40,12 @@ class RootPage extends StatelessWidget {
         builder: (context, snapshot) {
           final user = snapshot.data;
           if (user == null) {
-            return const Scaffold(
-              body: Center(
-                child: Text('Jesteś niezalogowany'),
-              ),
-            );
+            return LoginPage();
           }
-          return Scaffold(
-            appBar: AppBar(
-              title: const Text('Kontroller'),
-            ),
-            body: Center(
-              child: Text('Jesteś zalogowany jako ${user.email}'),
-            ),
-          );
+          return HomePage(user: user);
         });
   }
 }
+
+
+

@@ -1,3 +1,6 @@
+import 'package:controla/app/home/contrahents/contrahents_page_content.dart';
+import 'package:controla/app/home/my_account/my_accout_page_content.dart';
+import 'package:controla/app/home/value/value_page_conent.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -19,32 +22,17 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Center(child: Text('Controla')),
+      ),
       body: Builder(builder: (context) {
         if (currentIndex == 0) {
-          return const Center(
-            child: Text('Jeden'),
-          );
+          return const ContrahentsPageContent();
         }
         if (currentIndex == 1) {
-          return const Center(
-            child: Text('Dwa'),
-          );
+          return const ValuePageContent();
         }
-        return Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Center(
-              child: Text('Jesteś zalogowany jako ${widget.user.email}'),
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                FirebaseAuth.instance.signOut();
-              },
-              child: const Text('Wyloguj'),
-            ),
-          ],
-        );
+        return MyAccountPageContent(email: widget.user.email);
       }),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
@@ -58,14 +46,13 @@ class _HomePageState extends State<HomePage> {
             icon: Icon(Icons.shopping_cart),
             label: 'Zamówienia',
           ),
+          BottomNavigationBarItem(icon: Icon(Icons.people), label: 'Klienci'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.people), 
-              label: 'Klienci'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person), 
-              label: 'Moje konto'),
+              icon: Icon(Icons.person), label: 'Moje konto'),
         ],
       ),
     );
   }
 }
+
+

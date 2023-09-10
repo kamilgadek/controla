@@ -127,23 +127,47 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(height: 20),
               if (isCreatingAccount == false) ...[
-                TextButton(
-                  onPressed: () {
-                    setState(() {
-                      isCreatingAccount = true;
-                    });
-                  },
-                  child: const Text('Utwórz konto'),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Nie masz konta?'),
+                    TextButton(
+                      onPressed: () {
+                        setState(() {
+                          isCreatingAccount = true;
+                        });
+                      },
+                      
+                      child: Text('Zarejestruj się',
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w500,
+                        color: Color.fromARGB(255, 23, 23, 23),
+                      ),
+                      ),
+                    ),
+                  ],
                 ),
               ],
+              SizedBox(height: 120),
               if (isCreatingAccount == true) ...[
-                TextButton(
-                  onPressed: () {
-                    setState(() {
-                      isCreatingAccount = false;
-                    });
-                  },
-                  child: const Text('Masz juz konto?'),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text ('Masz juz konto?'),
+                    TextButton(
+                      onPressed: () {
+                        setState(() {
+                          isCreatingAccount = false;
+                        });
+                      },
+                      child: Text('Zaloguj się',
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w500,
+                        color: Color.fromARGB(255, 23, 23, 23),
+                      ),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ],

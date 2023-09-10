@@ -30,7 +30,11 @@ class _HomePageState extends State<HomePage> {
           return const ContrahentsPageContent();
         }
         if (currentIndex == 1) {
-          return const ValuePageContent();
+          return ValuePageContent(onSave : (){
+            setState(() {
+              currentIndex = 0;
+            });
+          });
         }
         return MyAccountPageContent(email: widget.user.email);
       }),
@@ -46,7 +50,7 @@ class _HomePageState extends State<HomePage> {
             icon: Icon(Icons.shopping_cart),
             label: 'Zamówienia',
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.people), label: 'Klienci'),
+          BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Dodaj zamówienie'),
           BottomNavigationBarItem(
               icon: Icon(Icons.person), label: 'Moje konto'),
         ],

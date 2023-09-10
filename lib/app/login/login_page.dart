@@ -113,10 +113,17 @@ class _LoginPageState extends State<LoginPage> {
                     color: Colors.white,
                   ),
                   ),
+                  minimumSize: const Size (
+                    double.infinity,
+                    0,
+                  )
                 ),
-                child: Text(isCreatingAccount == true
-                    ? 'Zarejestruj się'
-                    : 'Zaloguj się'),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30, ),
+                  child: Text(isCreatingAccount == true
+                      ? 'Zarejestruj się'
+                      : 'Zaloguj się'),
+                ),
               ),
               const SizedBox(height: 20),
               if (isCreatingAccount == false) ...[

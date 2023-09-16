@@ -10,7 +10,7 @@ class ContrahentsPageContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
         stream:
-            FirebaseFirestore.instance.collection("contrahents").snapshots(),
+            FirebaseFirestore.instance.collection("contrahents").orderBy('created_at', descending: true).snapshots(),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
             return const Center(child: Text('Something went wrong'));

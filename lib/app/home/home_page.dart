@@ -23,6 +23,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 23, 23, 23),
         title: const Center(child: Text('Controla')),
       ),
       body: Builder(builder: (context) {
@@ -36,6 +37,7 @@ class _HomePageState extends State<HomePage> {
             });
           });
         }
+        
         return MyAccountPageContent(email: widget.user.email);
       }),
       bottomNavigationBar: BottomNavigationBar(

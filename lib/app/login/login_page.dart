@@ -125,12 +125,12 @@ class _LoginPageState extends State<LoginPage> {
                       : 'Zaloguj się'),
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 90),
               if (isCreatingAccount == false) ...[
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Nie masz konta?'),
+                    const Text('Nie masz konta?'),
                     TextButton(
                       onPressed: () {
                         setState(() {
@@ -141,19 +141,19 @@ class _LoginPageState extends State<LoginPage> {
                       child: Text('Zarejestruj się',
                       style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w500,
-                        color: Color.fromARGB(255, 23, 23, 23),
+                        color: const Color.fromARGB(255, 23, 23, 23),
                       ),
                       ),
                     ),
                   ],
                 ),
               ],
-              SizedBox(height: 120),
+              
               if (isCreatingAccount == true) ...[
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text ('Masz juz konto?'),
+                    const Text ('Masz juz konto?'),
                     TextButton(
                       onPressed: () {
                         setState(() {
@@ -163,7 +163,7 @@ class _LoginPageState extends State<LoginPage> {
                       child: Text('Zaloguj się',
                       style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w500,
-                        color: Color.fromARGB(255, 23, 23, 23),
+                        color: const Color.fromARGB(255, 23, 23, 23),
                       ),
                       ),
                     ),

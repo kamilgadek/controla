@@ -14,8 +14,8 @@ class ValuePageContent extends StatefulWidget {
 class _ValuePageContentState extends State<ValuePageContent> {
   var contrahentsName = '';
   var materialName = '';
-  var value = 1.0;
- 
+  var valueName = '';
+  
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -29,7 +29,7 @@ class _ValuePageContentState extends State<ValuePageContent> {
                 hintText: 'Podaj nazwę kontrahenta',
                 hintStyle: GoogleFonts.poppins(
                   textStyle: const TextStyle(
-                    color: Color.fromARGB(255, 23, 23, 23),
+                    color: Color.fromARGB(255, 103, 101, 101),
                   ),
                 ),
               ),
@@ -44,7 +44,7 @@ class _ValuePageContentState extends State<ValuePageContent> {
                 hintText: 'Podaj nazwę materiału',
                 hintStyle: GoogleFonts.poppins(
                   textStyle: const TextStyle(
-                    color: Color.fromARGB(255, 23, 23, 23),
+                    color: Color.fromARGB(255, 103, 101, 101),
                   ),
                 ),
               ),
@@ -54,45 +54,44 @@ class _ValuePageContentState extends State<ValuePageContent> {
                 });
               },
             ),
-            const SizedBox(height: 20),
-            Text(
-              'Podaj ilość opakowań:',
-              style: GoogleFonts.poppins(
-                color: const Color.fromARGB(255, 23, 23, 23),
+            TextField(
+              decoration: InputDecoration(
+                hintText: 'Podaj ilość w m2',
+                hintStyle: GoogleFonts.poppins(
+                  textStyle: const TextStyle(
+                    color: Color.fromARGB(255, 103, 101, 101),
+                  ),
+                ),
               ),
-            ),
-            Slider(
-              min: 0.5,
-              max: 400.0,
-              divisions: ((400.0 - 0.5) ~/ 0.5).toInt(),
-              value: value,
-              label: value.toString(),
               onChanged: (newValue) {
                 setState(() {
-                  value = (newValue * 2).round() / 2;
+                  valueName = newValue;
                 });
               },
-              activeColor: Colors.black,
-              inactiveColor: const Color.fromARGB(255, 189, 182, 182),
             ),
+        
+            const SizedBox(height: 30),
             ElevatedButton(
-              onPressed: contrahentsName.isEmpty || materialName.isEmpty
+              onPressed: contrahentsName.isEmpty ||
+                      materialName.isEmpty ||
+                      valueName.isEmpty
                   ? null
                   : () {
                       FirebaseFirestore.instance.collection('contrahents').add({
                         'name': contrahentsName,
                         'material': materialName,
-                        'value': value,
-                        "created_at": FieldValue.serverTimestamp(),
+                        'value': valueName,
+                        
                       });
                       widget.onSave();
                     },
-                    style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                    ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.black,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                minimumSize: const Size(double.infinity, 50),
+              ),
               child: const Text('Dodaj'),
             ),
           ],

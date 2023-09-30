@@ -9,8 +9,10 @@ class ContrahentsPageContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
-        stream:
-            FirebaseFirestore.instance.collection("contrahents").orderBy('created_at', descending: true).snapshots(),
+        stream: FirebaseFirestore.instance
+            .collection("contrahents")
+
+            .snapshots(),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
             return const Center(child: Text('Something went wrong'));
@@ -21,19 +23,31 @@ class ContrahentsPageContent extends StatelessWidget {
 
           final documents = snapshot.data!.docs;
 
+          
+
           return ListView(
             children: [
               for (final document in documents) ...[
                 Padding(
                   padding: const EdgeInsets.all(20.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(document['name']),
-                      Text(document['material']),
-                      Text(document['value'].toString()),
-                    ],
+                  child: Dismissible(
+                    key: ValueKey(document.id),
+                    onDismissed: (_) {
+                      FirebaseFirestore.instance
+                          .collection('contrahents')
+                          .doc(document.id)
+                          .delete();
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(document['name']),
+                        Text(document['material']),
+                        Text(document['value'].toString()),
+                       
+                      ],
                   ),
+                ),
                 ),
               ],
             ],

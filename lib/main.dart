@@ -1,8 +1,7 @@
-import 'package:controla/app/features/home/home_page.dart';
-import 'package:controla/app/features/login/login_page.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
+import 'package:controla/app/app.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+
 import 'firebase_options.dart';
 
 void main() async {
@@ -12,40 +11,3 @@ void main() async {
   );
   runApp(const MyApp());
 }
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const RootPage(),
-    );
-  }
-}
-
-class RootPage extends StatelessWidget {
-  const RootPage({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return StreamBuilder<User?>(
-        stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (context, snapshot) {
-          final user = snapshot.data;
-          if (user == null) {
-            return LoginPage();
-          }
-          return HomePage(user: user);
-        });
-  }
-}
-
-
-

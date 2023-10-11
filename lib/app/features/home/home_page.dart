@@ -1,6 +1,6 @@
-import 'package:controla/app/home/contrahents/contrahents_page_content.dart';
-import 'package:controla/app/home/my_account/my_accout_page_content.dart';
-import 'package:controla/app/home/value/value_page_conent.dart';
+import 'package:controla/app/features/home/contrahents/contrahents_page_content.dart';
+import 'package:controla/app/features/home/my_account/my_accout_page_content.dart';
+import 'package:controla/app/features/home/value/value_page_conent.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 

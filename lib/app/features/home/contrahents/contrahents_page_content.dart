@@ -26,47 +26,36 @@ class ContrahentsPageContent extends StatelessWidget {
 
           final documents = state.documents;
 
-          return ListView(
-            padding: const EdgeInsets.symmetric(
-              vertical: 20,
-            ),
-            children: [
-              for (final document in documents)
-                Dismissible(
-                  key: ValueKey(document.id),
-                  background: const DecoratedBox(
-                    decoration: BoxDecoration(color: Colors.grey),
-                  
-                  child: Align(
-                    alignment: Alignment.centerRight,
-                    child: Padding(
-                      padding: EdgeInsets.only(right: 32.0),
-                      child: Icon(
-                        Icons.delete
+          return BlocProvider(
+            create: (context) => RootCubit(),
+            child: ListView(
+              children: [
+                for (final document in documents) ...[
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Dismissible(
+                      key: ValueKey(document.id),
+                      onDismissed: (_) {
+                        context.read<RootCubit>().remove(documentID: document.id);
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(document['name']),
+                          Text(document['material']),
+                          Text(document['value'].toString()),
+                        ],
                       ),
                     ),
                   ),
-                ),
-                confirmDismiss: (direction) async {
-                  return direction == DismissDirection.endToStart;
-                },
-                onDismissed: (direction) {
-                  context.read<ContrahentsCubit>().remove(documentID: document);
-                },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(document['name']),
-                      Text(document['material']),
-                      Text(document['value'].toString()),
-                  
-                    ],
-                  ),
-                  ),
-            ],
+                ],
+              ],
+            ),
           );
         },
       ),
     );
   }
 }
+
+

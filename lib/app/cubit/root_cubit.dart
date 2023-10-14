@@ -128,7 +128,7 @@ class RootCubit extends Cubit<RootState> {
   Future<void> remove( {required String documentID}) async {
    try {
     await FirebaseFirestore.instance
-    .collection('')
+    .collection('contrahents')
     .doc(documentID)
     .delete();
    }

@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:controla/app/cubit/root_cubit.dart';
 import 'package:controla/app/features/home//contrahents/cubit/contrahents_cubit.dart';
 import 'package:flutter/material.dart';
@@ -26,36 +25,56 @@ class ContrahentsPageContent extends StatelessWidget {
 
           final documents = state.documents;
 
-          return BlocProvider(
-            create: (context) => RootCubit(),
-            child: ListView(
-              children: [
-                for (final document in documents) ...[
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
+          return ListView(
+            children: [
+              for (final document in documents) ...[
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: SizedBox(
+                    height: 60,
                     child: Dismissible(
                       key: ValueKey(document.id),
-                      onDismissed: (_) {
-                        context.read<RootCubit>().remove(documentID: document.id);
+                      background: const DecoratedBox(
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 23, 23, 23),
+                        ),
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: Padding(
+                            padding: EdgeInsets.only(right: 30.0),
+                            child: Icon(
+                              Icons.delete,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                      confirmDismiss: (direction) async{
+                        return direction == DismissDirection.endToStart;
                       },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(document['name']),
-                          Text(document['material']),
-                          Text(document['value'].toString()),
-                        ],
+                      onDismissed: (_) {
+                        context
+                            .read<RootCubit>()
+                            .remove(documentID: document.id);
+                      },
+                      child: Center(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(document['name']),
+                            Text(document['material']),
+                            Text(document['value'].toString()),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ],
+                ),
               ],
-            ),
+            ],
           );
         },
       ),
     );
   }
 }
-
-

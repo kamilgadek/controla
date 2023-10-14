@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:meta/meta.dart';
 
@@ -18,6 +19,8 @@ class RootCubit extends Cubit<RootState> {
         );
 
   StreamSubscription? _streamSubscription;
+
+  
 
   Future<void> signOut() async {
     FirebaseAuth.instance.signOut();
@@ -67,7 +70,6 @@ class RootCubit extends Cubit<RootState> {
     );
   }
 
-
   Future<void> signInButtonPressed() async {
     emit(
       const RootState(
@@ -91,7 +93,11 @@ class RootCubit extends Cubit<RootState> {
     } on FirebaseAuthException catch (error) {
       {
         emit(
-          RootState(errorMessage: error.toString(), isLoading: false, user: null, isCreatingAccount: false),
+          RootState(
+              errorMessage: error.toString(),
+              isLoading: false,
+              user: null,
+              isCreatingAccount: false),
         );
       }
     }
@@ -109,12 +115,30 @@ class RootCubit extends Cubit<RootState> {
     } on FirebaseAuthException catch (error) {
       {
         emit(
-          RootState(errorMessage: error.toString(), isLoading: false, user: null, isCreatingAccount: false),
+          RootState(
+              errorMessage: error.toString(),
+              isLoading: false,
+              user: null,
+              isCreatingAccount: false),
         );
       }
     }
   }
 
+  Future<void> remove( {required String documentID}) async {
+   try {
+    await FirebaseFirestore.instance
+    .collection('')
+    .doc(documentID)
+    .delete();
+   }
+   catch (error) {
+    emit(
+      const RootState(isLoading: false, errorMessage: '', user: null, isCreatingAccount: false)
+    );
+    start();
+   }
+  }
 
   @override
   Future<void> close() {
@@ -122,5 +146,3 @@ class RootCubit extends Cubit<RootState> {
     return super.close();
   }
 }
-
-

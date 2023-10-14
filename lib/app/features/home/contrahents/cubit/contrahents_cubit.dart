@@ -53,4 +53,6 @@ class ContrahentsCubit extends Cubit<ContrahentsState> {
     _streamSubscription?.cancel();
     return super.close();
   }
+
+  void remove({required QueryDocumentSnapshot<Map<String, dynamic>> documentID}) {}
 }
